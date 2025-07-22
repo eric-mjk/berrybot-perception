@@ -6,7 +6,7 @@ import matplotlib.pyplot as plt
 from funcs import check_data, make_filenames, load_file, show_image
 
 # Target Directory
-path = "TEST4/masked_dataset.yolov8"
+path = "Strawberry Feature Points.v11-complete_dataset.yolov8"
 
 train_path = os.path.join(path, "train")
 test_path = os.path.join(path, "test")
@@ -18,7 +18,10 @@ test_filenames = make_filenames(test_path)
 valid_filenames = make_filenames(valid_path)
 
 
+print(len(train_filenames), len(test_filenames), len(valid_filenames))
+
+
+
 # Sample
 image, data = load_file(train_path, train_filenames[0])
 # print(data)
-

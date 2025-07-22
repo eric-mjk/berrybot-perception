@@ -1,6 +1,8 @@
-from pathlib import Path
+# from custom_imports import custom_import
+# custom_import()
 
-url = r"C:\Users\ericm\Desktop\BerryBot\Tests_Tests\TEST1\NaiveTraining_Results2\runs\pose\yolov8n_strawberry_continued\weights\best.pt"
-
-path = Path(url)
-print(path.as_posix())
+import sys
+sys.path.insert(0, r"C:/Users/user/Desktop/User_Eric/git_folder/ultralytics")
+import ultralytics
+print(ultralytics.__file__)     # check the source
+print(ultralytics.__version__)
