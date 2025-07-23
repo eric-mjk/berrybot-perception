@@ -6,8 +6,8 @@ import cv2
 import time
 
 # --- Configuration ---
-input_folder = "TEST4/Strawberry Feature Points.v11-complete_dataset.yolov8/valid/images"
-output_folder = "TEST4_dataset/valid/images"
+input_folder = "Strawberry Feature Points.v11-complete_dataset.yolov8\\valid\\images"
+output_folder = "masked_dataset.yolov8\\valid\\images"
 os.makedirs(output_folder, exist_ok=True)
 
 # --- Your predefined image processing function ---
