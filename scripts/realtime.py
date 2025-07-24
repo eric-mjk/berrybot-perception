@@ -4,7 +4,7 @@ from ultralytics import YOLO
 import numpy as np
 
 # Load your trained YOLOv8 model
-model_path = 'C:/Users/ericm/Desktop/BerryBot/Tests_Tests/TEST1/NaiveTraining_Results2/runs/pose/yolov8n_strawberry_continued/weights/best.pt'
+model_path = 'berrybot-perception/Models/model1/best.pt'
 model = YOLO(model_path)
 
 # Initialize webcam (0 is usually the default camera)
@@ -21,7 +21,7 @@ while True:
         break
 
     # Run YOLOv8 prediction on the frame
-    results = model.predict(source=frame, conf=0.5, save=False, verbose=False)
+    results = model.predict(source=frame, conf=0.3, save=False, verbose=False)
 
     for r in results:
         boxes = r.boxes
