@@ -2,9 +2,17 @@ import os
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
+import cv2
 
 from funcs import check_data, make_filenames, load_file, show_image, prediction_handling, print_data
 
+# Check Model Performance
+from ultralytics import YOLO
+model_path = 'berrybot-perception/Models/model1/best.pt'
+model = YOLO(model_path)
+
+
+"""
 path = "TEST3/Strawberry Feature Points.v10i.yolov8"
 
 train_path = os.path.join(path, "train")
@@ -16,11 +24,6 @@ train_filenames = make_filenames(train_path)
 test_filenames = make_filenames(test_path)
 valid_filenames = make_filenames(valid_path)
 
-# Check Model Performance
-from ultralytics import YOLO
-model_path = 'TEST3/resultsresults3/runs/pose/yolov8n_strawberry7/weights/best.pt'
-model = YOLO(model_path)
-
 for file in test_filenames:
     res = load_file(test_path, file)
     results = model.predict(source=res[0], conf=0.5, save=False, verbose = False)
@@ -30,4 +33,38 @@ for file in test_filenames:
     show_image((res[0], results), is_scaled = False, is_confidence = True)
 
     input("Press Enter to continue...")
+"""
 
+
+video_path = "C:\\Users\\ericm\\Desktop\\BerryBot\\workspace\\SampleData\\Vid1.mp4"
+cap = cv2.VideoCapture(video_path)
+if not cap.isOpened():
+    raise IOError(f"Cannot open video {video_path}")
+
+while True:
+    ret, frame = cap.read()
+    if not ret:
+        print("End of video.")
+        break
+    
+    frame = cv2.resize(frame, (640, 640))
+
+    # Predict on the current frame
+    results = model.predict(source=frame, conf=0.3, save=False, verbose=False)
+
+    # Handle predictions
+    results = prediction_handling(results)
+
+    # Optional: print prediction data
+    print_data(results)
+
+    # Show image with results (draw keypoints etc.)
+    show_image((frame, results), is_scaled=False, is_confidence=True)
+
+    # Pause or exit
+    key = input("Press Enter to continue to next frame (or type 'q' to quit): ")
+    if key.strip().lower() == 'q':
+        break
+
+cap.release()
+cv2.destroyAllWindows()

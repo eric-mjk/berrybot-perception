@@ -152,6 +152,16 @@ def show_image(image_plus_data, is_scaled = True, is_confidence = False):
         y2 = int(y_center + box_height / 2)
 
         cv2.rectangle(image, (x1, y1), (x2, y2), (255, 0, 0), 2)
+        cv2.putText(
+            image,
+            text = str(round(bbox["confidence"],2)),
+            org = (x1, y1 - 5),
+            fontFace=cv2.FONT_HERSHEY_SIMPLEX,
+            fontScale=0.4,       # 👈 smaller scale = smaller text
+            color=(0,0,0),      # Black text
+            thickness=1,
+            lineType=cv2.LINE_AA
+        )
 
 
         color_map = [(255,255,255), (255, 255, 0), (255, 0, 255)]

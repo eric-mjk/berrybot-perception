@@ -8,7 +8,7 @@ model_path = 'berrybot-perception/Models/model1/best.pt'
 model = YOLO(model_path)
 
 # Initialize webcam (0 is usually the default camera)
-cap = cv2.VideoCapture(0)
+cap = cv2.VideoCapture(1)
 
 if not cap.isOpened():
     print("Error: Could not open webcam.")
@@ -21,7 +21,7 @@ while True:
         break
 
     # Run YOLOv8 prediction on the frame
-    results = model.predict(source=frame, conf=0.3, save=False, verbose=False)
+    results = model.predict(source=frame, conf=0.4, save=False, verbose=False)
 
     for r in results:
         boxes = r.boxes
