@@ -5,7 +5,7 @@ import numpy as np
 from funcs import check_data, make_filenames, load_file, show_image, prediction_handling, print_data
 
 # Load your trained YOLOv8 model
-model_path = 'Models/model1/best.pt'
+model_path = 'Models/model1.pt'
 model = YOLO(model_path)
 
 # Initialize webcam (0 is usually the default camera)
