@@ -312,11 +312,11 @@ def print_data(dddata):
         data= ddata["bbox"]
         ata = ddata["keypoints"]
         print(f"Data #{i}| ")
-        print(f"Box : ({data["x_center"]}, {data["y_center"]}, {data["width"]}, {data["height"]})")
+        print(f"Box : ({data['x_center']}, {data['y_center']}, {data['width']}, {data['height']})")
         for i in range(3):
             ta = ata[i]
-            print(f"Keypoints{i} : ({ta["x"]}, {ta["y"]}, {ta["v"]})")
-        print(f"Confidence : Box({data["confidence"]}), Keypoints({ata[0]["confidence"]}, {ata[1]["confidence"]}, {ata[2]["confidence"]})")
+            print(f"Keypoints{i} : ({ta['x']}, {ta['y']}, {ta['v']})")
+        print(f"Confidence : Box({data['confidence']}), Keypoints({ata[0]['confidence']}, {ata[1]['confidence']}, {ata[2]['confidence']})")
 
 
 

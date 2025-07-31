@@ -2,13 +2,14 @@ import cv2
 import torch
 from ultralytics import YOLO
 import numpy as np
+from funcs import check_data, make_filenames, load_file, show_image, prediction_handling, print_data
 
 # Load your trained YOLOv8 model
 model_path = 'berrybot-perception/Models/model1/best.pt'
 model = YOLO(model_path)
 
 # Initialize webcam (0 is usually the default camera)
-cap = cv2.VideoCapture(1)
+cap = cv2.VideoCapture(0)
 
 if not cap.isOpened():
     print("Error: Could not open webcam.")
@@ -22,6 +23,9 @@ while True:
 
     # Run YOLOv8 prediction on the frame
     results = model.predict(source=frame, conf=0.4, save=False, verbose=False)
+
+    handled_results = prediction_handling(results)
+    print(handled_results)
 
     for r in results:
         boxes = r.boxes
