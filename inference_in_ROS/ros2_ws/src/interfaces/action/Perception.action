@@ -1,0 +1,8 @@
+# Goal definition
+bool run
+---
+# Result definition
+YoloDetection yolo_result
+---
+# Feedback definition
+string status
