@@ -5,7 +5,11 @@ This is a repository is for 2025 Seoul National University Creative Engineering 
 
 - Robot : Fruit Harvesting Robot (과일 수확 로봇)
 
-(This repository only contains the "perception" related tasks of the robot)
+This repository only contains the "perception" related tasks of the robot. More information on the robot can be found below.
+- ROS-Control + Overview on Project : https://github.com/sawo0150/berry-good-bot
+- Presentation Video                : https://www.youtube.com/watch?v=eAwnoZv1Vwg
+- Robot Operation Video             : https://www.youtube.com/watch?v=T6ebTg6ipFc
+
 <img width="800" height="600" alt="과일수확로봇-대표이미지" src="https://github.com/user-attachments/assets/0f91454a-fdf4-4247-98a1-81b32c4a3944" />
 
 # YOLO-pose Model for Fruit Detection
@@ -34,8 +38,8 @@ The parameters can be found at 'parameters' folder.
 ## Model Performance
 Model Performance is based on 'result2'. 'result1' and 'result2' has almost identical performance, however we suggest 'result2' model works a bit better in real-time.
 
-<img width="450" height="450" alt="BoxPR_curve" src="https://github.com/user-attachments/assets/4b0cc6df-8dd8-4d2b-90b9-baa3c8b10f6f" />
-<img width="450" height="450" alt="PosePR_curve" src="https://github.com/user-attachments/assets/fe4fab33-1c25-4c58-8ce8-4919c9e6d94e" />
+<img width="400" height="400" alt="BoxPR_curve" src="https://github.com/user-attachments/assets/4b0cc6df-8dd8-4d2b-90b9-baa3c8b10f6f" />
+<img width="400" height="400" alt="PosePR_curve" src="https://github.com/user-attachments/assets/fe4fab33-1c25-4c58-8ce8-4919c9e6d94e" />
 
 (Precision-Recall curve of 'Bounding Box' and 'Pose(Feature Point)')
 
