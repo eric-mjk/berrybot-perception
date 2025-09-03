@@ -1,4 +1,4 @@
-## Overview
+# Overview
 This is a repository is for 2025 Seoul National University Creative Engineering Fair (2025 서울대학교 창의설계축전).
 
 - Team : Berry-Good-Bot (딸기가 좋아)
@@ -13,7 +13,8 @@ This repository only contains the "perception" related tasks of the robot. More 
 <img width="800" height="600" alt="과일수확로봇-대표이미지" src="https://github.com/user-attachments/assets/0f91454a-fdf4-4247-98a1-81b32c4a3944" />
 
 # YOLO-pose Model for Fruit Detection
-![val_batch2_pred](https://github.com/user-attachments/assets/e99de61f-8a4a-41b5-8ae5-a7d8840da6ff)
+<img width="600" height="600" alt="val_batch2_pred" src="https://github.com/user-attachments/assets/e99de61f-8a4a-41b5-8ae5-a7d8840da6ff" />
+
 This repository contains a fine-tuned version of the Ultralytics YOLO-Pose v11 model, specifically adapted for the Fruit Harvesting Robot project. The model has been re-trained on a custom dataset to improve keypoint detection for our specific application.
 
 ## Dataset
@@ -21,9 +22,9 @@ The dataset can be found at the following ROBOFLOW workspace. It is consisted wi
 
 https://universe.roboflow.com/berrybot-xzypx/fruit-pose-fdtan
 
-![labels](https://github.com/user-attachments/assets/0f5fa2aa-f0ce-47ff-b37c-4420dbcd0baf)
+<img width="600" height="600" alt="Label Summary" src="https://github.com/user-attachments/assets/95fef41f-8088-4dbd-b862-2b39fac4909a" />
 
-(Dataset Explanation)
+(Label Summary)
 
 ## Key Changes from the Ultralytics YOLO-Pose v11
 While this project is built upon the robust foundation of the Ultralytics YOLO-Pose v11 framework, some modifications were made to optimize performance for our custom dataset:
@@ -49,13 +50,15 @@ Model Performance is based on 'result2'. 'result1' and 'result2' has almost iden
 ## Repository Structure
 ```
 berrybot-perception/
-├── models/
-│   ├── result1.pt # Fine-tuned model weights for each case
+├── models/             # Fine-tuned model weights for each case
+│   ├── result1.pt 
 │   └── result2.pt
-├── parameters/
-│   ├── result1.yaml # Model parameters for each case
+├── parameters/         # Model parameters for each case
+│   ├── result1.yaml
 │   └── result2.yaml
-└── README.md # This file
+├── scripts/            # Scripts for training and inference of model
+│   └── ...
+└── README.md           # This file
 ```
 
 ## Contributors
