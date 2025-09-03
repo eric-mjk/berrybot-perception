@@ -1,4 +1,4 @@
-## Overview
+# Overview
 This is a repository is for 2025 Seoul National University Creative Engineering Fair (2025 서울대학교 창의설계축전).
 
 - Team : Berry-Good-Bot (딸기가 좋아)
