@@ -65,6 +65,9 @@ berrybot-perception/
 
 ## Contributors
 Taeyoung Kwon(권태영)* : Robot Hardware Design and Manufacturing
+
 Minjun Kim(김민준)* : YOLO-Pose Deep Learning Model Development
+
 Sangwon Park(박상원)* : System Integration and Control Software Development
+
 (*Seoul National University, Department of Mechanical Engineering)
