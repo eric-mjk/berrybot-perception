@@ -1,35 +1,61 @@
+## Overview
+This is a repository is for 2025 Seoul National University Creative Engineering Fair (2025 서울대학교 창의설계축전).
+
+- Team : Berry-Good-Bot (딸기가 좋아)
+
+- Robot : Fruit Harvesting Robot (과일 수확 로봇)
+
+(This repository only contains the "perception" related tasks of the robot)
+<img width="800" height="600" alt="과일수확로봇-대표이미지" src="https://github.com/user-attachments/assets/0f91454a-fdf4-4247-98a1-81b32c4a3944" />
+
 # YOLO-pose Model for Fruit Detection
 ![val_batch2_pred](https://github.com/user-attachments/assets/e99de61f-8a4a-41b5-8ae5-a7d8840da6ff)
+This repository contains a fine-tuned version of the Ultralytics YOLO-Pose v11 model, specifically adapted for the Fruit Harvesting Robot project. The model has been re-trained on a custom dataset to improve keypoint detection for our specific application.
 
-## Overview
-This is a workspace for 2025 Seoul National University Creative Engineering Fair (2025 서울대학교 창의설계축전).
-This repository contains a fine-tuned version of the Ultralytics YOLO-Pose v11 model, specifically adapted for the berrybot project. The model has been re-trained on a custom dataset to improve keypoint detection for our specific application.
+## Dataset
+The dataset can be found at the following ROBOFLOW workspace. It is consisted with 900 images of 2500 individual fruits. It is labeled with a bounding box and three feature points.
+
+https://universe.roboflow.com/berrybot-xzypx/fruit-pose-fdtan
+
+![labels](https://github.com/user-attachments/assets/0f5fa2aa-f0ce-47ff-b37c-4420dbcd0baf)
+
+(Dataset Explanation)
 
 ## Key Changes from the Ultralytics YOLO-Pose v11
 While this project is built upon the robust foundation of the Ultralytics YOLO-Pose v11 framework, some modifications were made to optimize performance for our custom dataset:
 
-- Modified Object Keypoint Similarity (OKS) Metric: The OKS metric, a key measure of keypoint detection accuracy, was adjusted to better suit the specific characteristics and scale of the objects in our dataset. This fine-tuning of the OKS calculation ensures more precise evaluation and training feedback.
-<img width="468" height="647" alt="Feature Point Label" src="https://github.com/user-attachments/assets/fda34a82-a8f6-4f7c-9fae-417afd66c021" />
-From the above, there are 3 keypoints in our dataset. The three keypoints were assigned the following OKS Values [Bottom : 0.05, Top : 0.05, Pick : 0.1]
+- Modified Object Keypoint Similarity (OKS) Metric: The OKS metric, a key measure of keypoint detection accuracy, was adjusted to better suit the specific characteristics and scale of the objects in our dataset. This fine-tuning of the OKS calculation ensures more precise evaluation and training feedback. From the image below, there are 3 keypoints in our dataset. The three keypoints were assigned the following OKS Values [Bottom : 0.05, Top : 0.05, Pick : 0.1]
+<img width="200" height="400" alt="Feature Point Label" src="https://github.com/user-attachments/assets/fda34a82-a8f6-4f7c-9fae-417afd66c021" />
 
 - Parameter Tuning: The training and detection parameters of the model were extensively fine-tuned. Modifications were mainly on the calculation of the Loss Function. Also some parameters relate to training (lr, epoch, patience) where modified.
-The parameters can be found at 'args.yaml'.
+The parameters can be found at 'parameters' folder.
 
 
-## Clone the repository:
+## Model Performance
+Model Performance is based on 'result2'. 'result1' and 'result2' has almost identical performance, however we suggest 'result2' model works a bit better in real-time.
 
-git clone [https://github.com/your-username/berrybot-perception.git](https://github.com/your-username/berrybot-perception.git)
-cd berrybot-perception
+<img width="450" height="450" alt="BoxPR_curve" src="https://github.com/user-attachments/assets/4b0cc6df-8dd8-4d2b-90b9-baa3c8b10f6f" />
+<img width="450" height="450" alt="PosePR_curve" src="https://github.com/user-attachments/assets/fe4fab33-1c25-4c58-8ce8-4919c9e6d94e" />
 
-Install dependencies:
+(Precision-Recall curve of 'Bounding Box' and 'Pose(Feature Point)')
 
-pip install -r requirements.txt
+<img width="4200" height="600" alt="results" src="https://github.com/user-attachments/assets/d62e8dd4-51ac-469c-81fa-3358ae333e7e" />
+(Model training results)
 
-Train the model:
-You can use the train.py script to fine-tune the model further with your own data.
+## Repository Structure
+```
+berrybot-perception/
+├── models/
+│   ├── result1.pt # Fine-tuned model weights for each case
+│   └── result2.pt
+├── parameters/
+│   ├── result1.yaml # Model parameters for each case
+│   └── result2.yaml
+└── README.md # This file
+```
 
-License
-This project is licensed under the MIT License.
-
-Credits
-Ultralytics: For creating and maintaining the YOLO-Pose models, which serve as the foundation for this work.
+## Contributors
+Taeyoung Kwon(권태영)* : Robot Hardware Design and Manufacturing
+Minjun Kim(김민준)* : YOLO-Pose Deep Learning Model Development
+Sangwon Park(박상원)* : System Integration and Control Software Development
+(*Seoul National University, Department of Mechanical Engineering)
