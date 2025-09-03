@@ -58,6 +58,8 @@ berrybot-perception/
 │   └── result2.yaml
 ├── scripts/            # Scripts for training and inference of model
 │   └── ...
+├── inference_in_ROS/   # Files realted to use the YOLO model for Perception in ROS enviroment
+│   └── ...
 └── README.md           # This file
 ```
 
