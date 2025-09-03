@@ -1,32 +1,22 @@
-# YOLO-pose(V11, Ultralytics) fine-tuned model for fruit detection
-This repository contains a fine-tuned version of the Ultralytics YOLO-Pose v11 model, specifically adapted for the berrybot project. The model has been re-trained on a custom dataset to improve keypoint detection for our specific application. This README outlines the model's features, the key modifications from the original implementation, and the repository's structure.
+# YOLO-pose Model for Fruit Detection
+![val_batch2_pred](https://github.com/user-attachments/assets/e99de61f-8a4a-41b5-8ae5-a7d8840da6ff)
 
-Key Changes from the Ultralytics YOLO-Pose v11
-While this project is built upon the robust foundation of the Ultralytics YOLO-Pose v11 framework, several modifications were made to optimize performance for our custom dataset:
+## Overview
+This is a workspace for 2025 Seoul National University Creative Engineering Fair (2025 서울대학교 창의설계축전).
+This repository contains a fine-tuned version of the Ultralytics YOLO-Pose v11 model, specifically adapted for the berrybot project. The model has been re-trained on a custom dataset to improve keypoint detection for our specific application.
 
-Modified Object Keypoint Similarity (OKS) Metric: The OKS metric, a key measure of keypoint detection accuracy, was adjusted to better suit the specific characteristics and scale of the objects in our dataset. This fine-tuning of the OKS calculation ensures more precise evaluation and training feedback.
+## Key Changes from the Ultralytics YOLO-Pose v11
+While this project is built upon the robust foundation of the Ultralytics YOLO-Pose v11 framework, some modifications were made to optimize performance for our custom dataset:
 
-Parameter Tuning: The training and detection parameters of the model were extensively fine-tuned. This includes adjustments to learning rates, anchor box sizes, and confidence thresholds to maximize the model's performance on our unique data, leading to a more specialized and accurate model for our use case.
+- Modified Object Keypoint Similarity (OKS) Metric: The OKS metric, a key measure of keypoint detection accuracy, was adjusted to better suit the specific characteristics and scale of the objects in our dataset. This fine-tuning of the OKS calculation ensures more precise evaluation and training feedback.
+<img width="468" height="647" alt="Feature Point Label" src="https://github.com/user-attachments/assets/fda34a82-a8f6-4f7c-9fae-417afd66c021" />
+From the above, there are 3 keypoints in our dataset. The three keypoints were assigned the following OKS Values [Bottom : 0.05, Top : 0.05, Pick : 0.1]
 
-Repository Structure
-This repository follows a straightforward structure to make it easy to navigate and use.
+- Parameter Tuning: The training and detection parameters of the model were extensively fine-tuned. Modifications were mainly on the calculation of the Loss Function. Also some parameters relate to training (lr, epoch, patience) where modified.
+The parameters can be found at 'args.yaml'.
 
-berrybot-perception/
-├── data/
-│   ├── images/         # Custom dataset images
-│   └── labels/         # Keypoint annotations
-├── models/
-│   └── custom_yolov11.pt # Fine-tuned model weights
-├── src/
-│   ├── train.py      # Script used for fine-tuning
-│   └── detect.py     # Script for running inference on new data
-├── README.md           # This file
-└── requirements.txt    # Required Python packages
 
-Getting Started
-To get started with this project, we recommend familiarizing yourself with the original Ultralytics documentation.
-
-Clone the repository:
+## Clone the repository:
 
 git clone [https://github.com/your-username/berrybot-perception.git](https://github.com/your-username/berrybot-perception.git)
 cd berrybot-perception
