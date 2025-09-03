@@ -1,4 +1,4 @@
-# berrybot-perception
+# YOLO-pose(V11, Ultralytics) fine-tuned model for fruit detection
 This repository contains a fine-tuned version of the Ultralytics YOLO-Pose v11 model, specifically adapted for the berrybot project. The model has been re-trained on a custom dataset to improve keypoint detection for our specific application. This README outlines the model's features, the key modifications from the original implementation, and the repository's structure.
 
 Key Changes from the Ultralytics YOLO-Pose v11
